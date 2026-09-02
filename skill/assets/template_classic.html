@@ -1,0 +1,117 @@
+<!--
+  模板：经典毒舌风 (Classic)
+  适用：职场/科技/内部信/财报致辞 等通用场景
+  特征：深蓝判词框(#2b3a55)、莫兰迪配色、蓝色引用条
+
+  ============================================================
+  本文件是「样式参考 + 占位符规范」，供 agent 生成内容时参照。
+  最终微信版 HTML 由 scripts/gen_wechat.py 的 build_wechat_html() 自动组装。
+  agent 产出的 article.json 会被喂给 gen_wechat.py。
+
+  article.json 字段对照:
+  {
+    "title":        → <h1> 标题
+    "date":         → <p> 日期
+    "author":       → <p> 作者名
+    "lead":         → <p> 引言段
+    "verdict":      → <p> [真相翻译官] 一句话本质
+    "sections": [   → [毒舌深拆解] 逐段点评
+      {"heading": "① 小标题", "quote": "原文摘录", "comment": "点评"}
+    ]
+    "judge_title":  → <section> [最后的判词]
+    "judge_body":   → <section> 判词正文
+    "medical_title": → (可选) 医学/专业提醒标题
+    "medical_items": → (可选) 提醒条目列表
+    "medical_note":  → (可选) 提醒脚注
+    "cover_b64":    → base64 封面图（不带 data: 前缀）
+    "images": [     → 文中配图
+      {"b64": "base64...", "caption": "图1 · 说明"}
+    ]
+    "source_url":   → 原文链接
+    "source_label": → 原文来源标题
+    "footer":       → 版权声明
+    "template": "classic"
+  }
+  ============================================================
+
+  微信编辑器兼容规则（不可违反）:
+  1. 全内联 style，零 <style> 标签，零 class 属性
+  2. 只用微信白名单 CSS 属性
+  3. 禁用: box-shadow / text-shadow / position / float / display:flex / linear-gradient / transform
+  4. 图片用 base64 内联: <img src="data:image/jpeg;base64,...">
+  5. 无占位符、无调试信息、无内部备注
+-->
+
+<!-- 样式规范（classic 风格的颜色值）:
+  主色 #2b3a55 (深蓝)
+  强调 #4a6fa5 (蓝)
+  判词金 #ffd479
+  引用底 #f7f9fc
+  标签底 #f2f4f8
+  正文 #3f3f3f
+  引言 #555
+  辅助 #888 / #999 / #aaa
+  医学框 #fff7e6 底 / #ffe0a3 边 / #8a5a00 字 / #c47f00 标题
+-->
+
+<!-- 以下为最终输出结构示例（实际由 gen_wechat.py 自动生成）: -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+</head>
+<body>
+<section style="font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;">
+
+  <img src="data:image/jpeg;base64,{{COVER_B64}}" style="width:100%;border-radius:8px;display:block;margin:4px 0 6px;">
+
+  <h1 style="font-size:22px;font-weight:700;color:#2b3a55;line-height:1.4;margin:0 0 6px;">{{TITLE}}</h1>
+
+  <p style="font-size:13px;color:#888;line-height:1.6;margin:0 0 14px;"><b style="color:#576b95;">{{AUTHOR}}</b> · 原创评论 &nbsp;|&nbsp; {{DATE}}</p>
+
+  <p style="font-size:17px;line-height:1.8;color:#555;margin:0 0 18px;">{{LEAD}}</p>
+
+  <p style="display:inline-block;background:#f2f4f8;color:#4a6fa5;font-size:13px;font-weight:700;padding:2px 8px;border-radius:4px;margin:6px 0 10px;">[真相翻译官]</p>
+  <p style="font-size:17px;line-height:1.8;color:#3f3f3f;margin:0 0 18px;">{{VERDICT}}</p>
+
+  <!-- 文中配图（可选，循环） -->
+  <img src="data:image/jpeg;base64,{{IMG_B64}}" style="width:100%;border-radius:8px;display:block;margin:4px 0 6px;">
+  <p style="font-size:12px;color:#999;text-align:center;margin:0 0 18px;">图1 · 说明文字</p>
+
+  <!-- 毒舌深拆解（循环 sections） -->
+  <h3 style="font-size:18px;font-weight:700;color:#2b3a55;line-height:1.5;margin:22px 0 10px;">① 小标题</h3>
+  <p style="border-left:4px solid #4a6fa5;background:#f7f9fc;padding:10px 14px;margin:0 0 10px;font-size:15px;color:#555;border-radius:0 6px 6px 0;line-height:1.7;">原文摘录："..."</p>
+  <p style="font-size:17px;line-height:1.8;color:#3f3f3f;margin:0 0 18px;">点评：...</p>
+
+  <!-- 最后的判词 -->
+  <section style="background:#2b3a55;color:#fff;padding:16px 18px;border-radius:8px;margin:10px 0 20px;font-size:16px;line-height:1.75;">
+    <b style="color:#ffd479;font-weight:700;">[最后的判词]</b><br>
+    判词正文...
+  </section>
+
+  <!-- 医学/专业提醒（可选） -->
+  <section style="background:#fff7e6;border:1px solid #ffe0a3;border-radius:8px;padding:14px 16px;margin:10px 0 20px;font-size:15px;line-height:1.8;color:#8a5a00;">
+    <h4 style="color:#c47f00;font-size:15px;font-weight:700;margin:0 0 8px;">医学提醒（认真脸 · 这部分不是毒舌，请照做）</h4>
+    <ul>
+      <li style="margin:0 0 6px 18px;">条目1</li>
+      <li style="margin:0 0 6px 18px;">条目2</li>
+    </ul>
+  </section>
+  <p style="color:#888;font-size:14px;line-height:1.8;margin:0 0 18px;">以上要点整理自原文，具体请以专业医生/律师为准。</p>
+
+  <!-- 版权声明 -->
+  <p style="font-size:12px;color:#aaa;line-height:1.7;border-top:1px solid #eee;padding-top:14px;margin-top:10px;">本文为「毒舌职场真相官」专栏评论文章。© 2026 毒舌职场真相官</p>
+
+  <!-- 原文来源 -->
+  <section style="font-size:13px;color:#555;line-height:1.7;border-top:1px solid #eee;margin-top:6px;padding-top:14px;">
+    <p style="color:#888;font-size:12px;margin:0 0 8px;">原文来源 · 点击阅读原文（尊重版权）</p>
+    <a style="display:inline-block;color:#576b95;text-decoration:none;word-break:break-all;background:#f2f4f8;padding:8px 12px;border-radius:6px;font-size:13px;line-height:1.6;" href="{{SOURCE_URL}}" target="_blank" rel="noopener">原文链接</a>
+    <p style="margin-top:8px;color:#999;font-size:12px;">本文为独立评论文章，仅对原文的公共传播包装进行解构；版权归原作者及首发媒体所有。</p>
+  </section>
+
+</section>
+</body>
+</html>

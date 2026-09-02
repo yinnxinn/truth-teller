@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{ARTICLE_TITLE}</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 680px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; }
+  .article-container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  h1 { font-size: 22px; color: #1a1a1a; border-left: 4px solid #c0392b; padding-left: 15px; line-height: 1.4; margin-bottom: 25px; }
+  h2 { font-size: 18px; color: #fff; background: linear-gradient(135deg, #c0392b, #e74c3c); padding: 10px 18px; border-radius: 6px; margin-top: 35px; }
+  h3 { font-size: 16px; color: #2c3e50; border-left: 4px solid #3498db; padding-left: 12px; margin-top: 25px; }
+  p { margin: 15px 0; text-align: justify; }
+  
+  /* Highlight boxes */
+  .highlight-box { background: #fef9e7; border-left: 4px solid #f39c12; padding: 18px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; font-size: 15px; }
+  .verdict-box { background: linear-gradient(135deg, #fdf2f2, #fce4ec); border: 2px solid #c0392b; padding: 22px 25px; border-radius: 10px; margin: 25px 0; }
+  .tip-box { background: #e8f6f3; border-left: 4px solid #27ae60; padding: 18px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  
+  /* Lists */
+  ul, ol { padding-left: 25px; margin: 15px 0; }
+  li { margin: 8px 0; }
+  strong { color: #c0392b; }
+  
+  /* Image placeholders (for when AI image generation fails) */
+  .img-placeholder { 
+    width: 100%; height: 220px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    border-radius: 10px; display: flex; align-items: center; justify-content: center; 
+    color: #fff; font-size: 16px; margin: 25px 0; flex-direction: column; 
+    text-align: center; padding: 20px; box-sizing: border-box; 
+  }
+  .img-placeholder.small { height: 180px; }
+  
+  /* Real image wrapper (replace placeholder with this for actual images) */
+  .img-real { width: 100%; border-radius: 10px; margin: 25px 0; display: block; }
+  
+  /* Footer */
+  .footer-note { text-align: center; color: #999; font-size: 13px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+  .emoji { font-size: 24px; margin-right: 8px; }
+</style>
+</head>
+<body>
+<div class="article-container">
+
+<!-- ============================================ -->
+<!-- ARTICLE CONTENT START                       -->
+<!-- Replace all sections below with real content -->
+<!-- ============================================ -->
+
+<h1>{ARTICLE_TITLE_WITH_EMOJI}</h1>
+
+<!-- IMAGE POSITION 1: Hero / Opening scene -->
+<!-- Option A: AI-generated image (recommended) -->
+<!-- <img class="img-real" src="generated-images/hero.png" alt="配图"> -->
+<!-- Option B: Gradient fallback (use if image gen fails) -->
+<div class="img-placeholder">
+  <div style="font-size:40px;margin-bottom:10px;">📱</div>
+  <div><strong>配图：场景示意图</strong></div>
+  <div style="font-size:12px;opacity:0.8;margin-top:5px;">（描述文字）</div>
+</div>
+
+<p><strong>引子：</strong>用一段对话或场景描写吸引读者注意力，制造悬念。</p>
+
+<h2>📋 案件背景</h2>
+<p>原告/被告信息、案由、审理法院、案号等基本要素。</p>
+
+<p>故事叙述——按时间线讲清楚事情经过，要有细节、有画面感。</p>
+
+<!-- IMAGE POSITION 2: Story scene illustration -->
+<div class="img-placeholder small" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+  <div style="font-size:36px;margin-bottom:8px;">💥</div>
+  <div><strong>配图：情景示意图</strong></div>
+</div>
+
+<h2>⚖️ 法庭交锋</h2>
+<p>原告诉求（编号列表）、原告证据、被告抗辩理由（对比呈现）。</p>
+
+<h3>🔥 核心争议焦点</h3>
+<div class="highlight-box">
+<p><strong>争议的核心问题：</strong></p>
+<p style="text-align:center;font-size:17px;margin:10px 0;"><strong>一句话概括核心法律争议点</strong></p>
+</div>
+
+<!-- IMAGE POSITION 3: Court / Legal scene -->
+<div class="img-placeholder" style="background: linear-gradient(135deg, #434343 0%, #000 100%);">
+  <div style="font-size:40px;margin-bottom:10px;">⚖️</div>
+  <div><strong>配图：法庭/法律场景</strong></div>
+</div>
+
+<h2>📜 法院判决</h2>
+<div class="verdict-box">
+<p style="text-align:center;font-size:18px;color:#c0392b;margin:0 0 10px 0;"><strong>—— 法院判决 ——</strong></p>
+<p><strong>XX人民法院经审理后认为：</strong></p>
+<p>一、...；<br/>二、...；<br/>三、...。</p>
+</div>
+
+<p><strong>法官为什么这么判？核心理由如下：</strong></p>
+<p>第一点理由（引用法条+分析）。</p>
+<p>第二点理由（证据分析）。</p>
+<p>第三点理由（适用说明）。</p>
+
+<h2>💡 深度解读：关键法律知识点</h2>
+
+<h3>1️⃣ 知识点一标题</h3>
+<p>通俗解释 + 法条依据 + 实务要点。</p>
+
+<h3>2️⃣ 知识点二标题</h3>
+<p>常见误区 + 法院裁判思路 + 引用法官金句。</p>
+
+<h3>3️⃣ 知识点三标题</h3>
+<p>实操建议 + 证据清单。</p>
+
+<div class="tip-box">
+<p><span style="font-size:24px;margin-right:8px;">💡</span> <strong>律师提醒：</strong>一句话总结最关键的预防建议。</p>
+</div>
+
+<h2>⚠️ 写在最后：实用建议</h2>
+<ol>
+  <li><strong>建议标题1：</strong>具体可操作的建议内容。</li>
+  <li><strong>建议标题2：</strong>具体可操作的建议内容。</li>
+  <li><strong>建议标题3：</strong>具体可操作的建议内容。</li>
+  <li><strong>建议标题4：</strong>具体可操作的建议内容。</li>
+  <li><strong>建议标题5：</strong>具体可操作的建议内容。</li>
+</ol>
+
+<!-- IMAGE POSITION 4: Closing image -->
+<div class="img-placeholder small" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+  <div style="font-size:36px;margin-bottom:8px;">📝</div>
+  <div><strong>配图：结尾插图</strong></div>
+</div>
+
+<div class="footer-note">
+  <p>— END —</p>
+  <p>本文基于中国裁判文书网公开判决书整理改编</p>
+  <p>仅供普法参考，具体法律问题请咨询专业律师</p>
+  <p style="margin-top:10px;">关注我们 🔥 每天一个真实法律故事</p>
+</div>
+
+<!-- ============================================ -->
+<!-- ARTICLE CONTENT END                         -->
+<!-- ============================================ -->
+
+</div>
+</body>
+</html>

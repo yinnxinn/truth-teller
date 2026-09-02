@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+
+const DRAFT_ID = process.env.WECHAT_DRAFT_ID || "100000326";
+const EXPECTED_ARTICLES = Number(process.env.WECHAT_EXPECTED_ARTICLES || 5);
+const pages = await (await fetch("http://127.0.0.1:9222/json")).json();
+const page = pages.find(item => (item.url || "").includes("mp.weixin.qq.com"));
+assert.ok(page, "logged-in WeChat page is required");
+const token = (page.url.match(/token=(\d+)/) || [])[1];
+const ws = new WebSocket(page.webSocketDebuggerUrl);
+const pending = new Map(); let id = 0;
+ws.addEventListener("message", event => { const m = JSON.parse(event.data); const f = pending.get(m.id); if (f) { pending.delete(m.id); f(m); } });
+await new Promise((resolve, reject) => { ws.addEventListener("open", resolve, { once: true }); ws.addEventListener("error", reject, { once: true }); });
+const command = (method, params = {}) => new Promise(resolve => { const requestId = ++id; pending.set(requestId, resolve); ws.send(JSON.stringify({ id: requestId, method, params })); });
+await command("Page.navigate", { url: `https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&type=77&appmsgid=${DRAFT_ID}&token=${token}&lang=zh_CN` });
+await new Promise(resolve => setTimeout(resolve, 7000));
+const result = await command("Runtime.evaluate", { returnByValue: true, expression: "document.querySelectorAll('.js_appmsg_item').length" });
+ws.close();
+const count = result?.result?.result?.value || 0;
+assert.equal(count, EXPECTED_ARTICLES, `draft ${DRAFT_ID} should contain ${EXPECTED_ARTICLES} articles, got ${count}`);
+console.log(`PASS: draft ${DRAFT_ID} article count=${count}`);

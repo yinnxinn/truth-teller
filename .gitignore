@@ -1,0 +1,36 @@
+# ---- 体积巨大 / 会话镜像：绝不上库 ----
+/legacy/
+/browser-profile/
+/runs/
+# 运行期日志与后台快照（需要时可临时 +f）
+/logs/
+*.log
+
+# ---- Python 缓存 ----
+__pycache__/
+*.py[cod]
+*.pyc
+
+# ---- Node ----
+node_modules/
+
+# ---- 大体积衍生图片：尽量只存 jpg/html 源，跳过超重的 PNG ----
+*.png
+*.zip
+*.tar.gz
+*.pyc
+
+# ---- 编辑器/系统 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---- 发布策略产物（本仓库只做源码/skill 跟踪）----
+# 草稿/已发布 HTML、json 与配图大多可由 app 生成器/脚本复现，
+# 源码仓库只纳入生成器与 skill，不纳入再生成收益低的成品。
+# 如确需把某批草稿入库，去掉下面两行注释并反解对应路径。
+/content/drafts/
+/content/published/
+
+# 作者侧备注/临时脚本产物（保留生成器，不入库它产出的草稿 HTML 目录）

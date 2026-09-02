@@ -1,0 +1,72 @@
+<!--
+  模板：清爽杂志风 (Magazine)
+  适用：轻量吐槽、健康科普解构、生活方式类、教育类
+  特征：浅色背景、柔和色调、圆角卡片、暖色系
+
+  样式规范（magazine 风格颜色值）:
+  主色 #2d3436 (深灰)
+  强调 #e17055 (橙) / #d63031 (红)
+  标签底 #ffeaa7 (黄) + 红字 #d63031
+  引用条 #74b9ff (蓝) / 引用底 #f5f6fa
+  判词底 #fdcb6e (金黄) + 深灰字
+  医学框 #e3f6f5 底 / #55efc4 边 / #00b894 标题
+  原文链接 #e17055
+
+  article.json 中 "template": "magazine" 即使用此风格。
+  生成逻辑同 classic，仅颜色/氛围不同。
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+</head>
+<body>
+<section style="font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;">
+
+  <img src="data:image/jpeg;base64,{{COVER_B64}}" style="width:100%;border-radius:12px;display:block;margin:4px 0 6px;">
+
+  <h1 style="font-size:22px;font-weight:700;color:#2d3436;line-height:1.4;margin:0 0 6px;">{{TITLE}}</h1>
+
+  <p style="font-size:13px;color:#b2bec3;line-height:1.6;margin:0 0 14px;"><b style="color:#e17055;">{{AUTHOR}}</b> · 原创评论 &nbsp;|&nbsp; {{DATE}}</p>
+
+  <p style="font-size:17px;line-height:1.8;color:#636e72;margin:0 0 18px;">{{LEAD}}</p>
+
+  <p style="display:inline-block;background:#ffeaa7;color:#d63031;font-size:13px;font-weight:700;padding:2px 8px;border-radius:12px;margin:6px 0 10px;">[真相翻译官]</p>
+  <p style="font-size:17px;line-height:1.8;color:#2d3436;margin:0 0 18px;">{{VERDICT}}</p>
+
+  <!-- 毒舌深拆解（循环 sections） -->
+  <h3 style="font-size:18px;font-weight:700;color:#2d3436;line-height:1.5;margin:22px 0 10px;">① 小标题</h3>
+  <p style="border-left:4px solid #74b9ff;background:#f5f6fa;padding:10px 14px;margin:0 0 10px;font-size:15px;color:#636e72;border-radius:0 6px 6px 0;line-height:1.7;">原文摘录："..."</p>
+  <p style="font-size:17px;line-height:1.8;color:#2d3436;margin:0 0 18px;">点评：...</p>
+
+  <!-- 最后的判词（金黄圆角卡片） -->
+  <section style="background:#fdcb6e;color:#2d3436;padding:16px 18px;border-radius:12px;margin:10px 0 20px;font-size:16px;line-height:1.75;">
+    <b style="color:#d63031;font-weight:700;">[最后的判词]</b><br>
+    判词正文...
+  </section>
+
+  <!-- 医学/专业提醒（可选，薄荷绿） -->
+  <section style="background:#e3f6f5;border:1px solid #55efc4;border-radius:12px;padding:14px 16px;margin:10px 0 20px;font-size:15px;line-height:1.8;color:#2d3436;">
+    <h4 style="color:#00b894;font-size:15px;font-weight:700;margin:0 0 8px;">认真脸提醒</h4>
+    <ul>
+      <li style="margin:0 0 6px 18px;">条目1</li>
+      <li style="margin:0 0 6px 18px;">条目2</li>
+    </ul>
+  </section>
+
+  <!-- 版权声明 -->
+  <p style="font-size:12px;color:#b2bec3;line-height:1.7;border-top:1px solid #dfe6e9;padding-top:14px;margin-top:10px;">本文为「毒舌职场真相官」专栏评论文章。© 2026 毒舌职场真相官</p>
+
+  <!-- 原文来源 -->
+  <section style="font-size:13px;color:#636e72;line-height:1.7;border-top:1px solid #dfe6e9;margin-top:6px;padding-top:14px;">
+    <p style="color:#b2bec3;font-size:12px;margin:0 0 8px;">原文来源 · 点击阅读原文（尊重版权）</p>
+    <a style="display:inline-block;color:#e17055;text-decoration:none;word-break:break-all;background:#f5f6fa;padding:8px 12px;border-radius:12px;font-size:13px;line-height:1.6;" href="{{SOURCE_URL}}" target="_blank" rel="noopener">原文链接</a>
+    <p style="margin-top:8px;color:#b2bec3;font-size:12px;">本文为独立评论文章，版权归原作者及首发媒体所有。</p>
+  </section>
+
+</section>
+</body>
+</html>
