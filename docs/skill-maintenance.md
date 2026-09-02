@@ -50,8 +50,13 @@ Copy-Item -Path "D:\wechat\skill\*" -Destination "C:\Users\www19\.codex\skills\t
 
 ## 建议的下一组优化（增量，可逐一提交）
 
-1. 加 `validate_wechat_html.py`：存草稿前自动报出未替换的 `{{占位符}}`、微信会清空的
-  `linear-gradient/flex/position/box-shadow`，防排版烂。
+1.（已完成）`app/validate_wechat_html.py`：存草稿前自动报未替换 `{{占位符}}`、微信会清空的
+  `linear-gradient/display:flex/box-shadow/text-shadow/transform/position`、成品里残留的
+  `<style>/<script>/<class>`、极短空壳、以及坏掉的图片 `src`。典型用法：
+  ```powershell
+  # 先替换 manifest 里的 {{BODY_IMAGE_N}} 为真实图片再体检；退出码 0=通过 / 1=有问题
+  python app/validate_wechat_html.py --from-manifest content\drafts\<某批>\manifest.json
+  ```
 2. 收敛 `app` 里 40+ 到几个稳定入口（如 `run_pipeline.py draft-new/verify`），统一取 manifest 的语义。
 3. 把“复用已登录浏览器做 CDP 存草稿”的真链路写回 `skill/SKILL.md` Phase 4（替换不存在的 agent-browser 步骤）。
 4. （可选）把 Codex 较新 `gen_wechat_rich.py` 三主题引擎正式采纳并纳入本仓库默认实现。
