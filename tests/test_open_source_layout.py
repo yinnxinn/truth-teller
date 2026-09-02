@@ -100,6 +100,14 @@ def test_public_examples_and_references_use_current_tools_and_paths():
     assert "Codex 内置浏览器" in technical_reference
 
 
+def test_legacy_implementation_plan_is_clearly_archived():
+    implementation_plan = (ROOT / "docs/implementation-plan.md").read_text(
+        encoding="utf-8"
+    )
+    assert "历史归档" in implementation_plan
+    assert "README.md" in implementation_plan
+
+
 def test_maintenance_guide_matches_the_public_repository():
     guide = (ROOT / "docs/skill-maintenance.md").read_text(encoding="utf-8")
     assert "workplace-truth-teller" in guide
