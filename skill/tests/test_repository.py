@@ -182,4 +182,5 @@ def test_validate_workflow_has_required_github_actions_contract():
     runs = {step["run"] for step in steps if "run" in step}
     assert "python -m pip install pytest pyyaml" in runs
     assert "python -m pytest skill/tests -v" in runs
-    assert "python -m pytest tests app/test_dingtalk_one_truth_article.py -v" in runs
+    assert "python -m pytest tests -v" in runs
+    assert "app/test_dingtalk_one_truth_article.py" not in runs

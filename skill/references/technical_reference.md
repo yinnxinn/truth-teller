@@ -50,11 +50,7 @@ editor.dispatchEvent(new Event('change', { bubbles: true }));
 - **React synthetic value 不可靠**
 - **`.value` 赋值无效**
 
-**可靠方法**：用 agent-browser 的 click + keyboard type:
-```bash
-agent-browser click <title_ref>
-agent-browser keyboard type "文章标题"
-```
+**可靠方法**：使用 Codex 内置浏览器控制能力，先点击可见标题输入区，再通过键盘输入标题。每次操作前都重新读取当前页面，不复用旧会话中的元素引用。
 
 ## 常见元素 Ref（来自快照）
 

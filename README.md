@@ -138,7 +138,7 @@ tests/       仓库级开源布局测试
 
 ```powershell
 python -m pip install pytest pyyaml
-python -m pytest -v
+python -m pytest skill/tests tests -v
 $env:PYTHONUTF8 = "1"
 python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" skill
 git diff --check

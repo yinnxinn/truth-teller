@@ -35,7 +35,7 @@
 在仓库根目录运行：
 
 ```bash
-python scripts/gen_wechat_safe.py --config examples/article.json --out examples/article.html --no-images
+python skill/scripts/gen_wechat_safe.py --config skill/examples/article.json --out skill/examples/article.html --no-images
 ```
 
-生成后先在本地审阅 `examples/article.html`，再按[技能说明](../SKILL.md)手动粘贴到公众号编辑器。示例不包含账号、Cookie、登录截图或真实文章内容。
+生成后先在本地审阅 `skill/examples/article.html`，再按[技能说明](../SKILL.md)手动粘贴到公众号编辑器。示例不包含账号、Cookie、登录截图或真实文章内容。

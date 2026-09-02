@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 
-SCRIPT = Path(r"D:/wechat/app/generate_dingtalk_one_truth_article.py")
+SCRIPT = Path(__file__).with_name("generate_dingtalk_one_truth_article.py")
 
 
 def load_article():

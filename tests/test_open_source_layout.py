@@ -63,8 +63,10 @@ def test_skill_workflow_has_required_runtime_contract():
         "22",
         "python -m pip install pytest pyyaml",
         "python -m pytest skill/tests -v",
+        "python -m pytest tests -v",
     ):
         assert required in serialized
+    assert "app/test_dingtalk_one_truth_article.py" not in serialized
 
 
 def test_existing_application_sources_are_preserved():
@@ -75,6 +77,27 @@ def test_existing_application_sources_are_preserved():
         "docs/skill-maintenance.md",
     ):
         assert (ROOT / path).is_file()
+
+
+def test_ci_regression_test_uses_a_repository_relative_script_path():
+    regression_test = (ROOT / "app/test_dingtalk_one_truth_article.py").read_text(
+        encoding="utf-8"
+    )
+    assert 'Path(__file__).with_name("generate_dingtalk_one_truth_article.py")' in regression_test
+    assert 'Path(r"D:/wechat/' not in regression_test
+
+
+def test_public_examples_and_references_use_current_tools_and_paths():
+    example = (ROOT / "skill/examples/README.md").read_text(encoding="utf-8")
+    migration = (ROOT / "docs/migration-design.md").read_text(encoding="utf-8")
+    technical_reference = (ROOT / "skill/references/technical_reference.md").read_text(
+        encoding="utf-8"
+    )
+    assert "python skill/scripts/gen_wechat_safe.py" in example
+    assert "skill/examples/article.json" in example
+    assert "D:\\wechat" not in migration
+    assert "agent-browser" not in technical_reference
+    assert "Codex 内置浏览器" in technical_reference
 
 
 def test_maintenance_guide_matches_the_public_repository():

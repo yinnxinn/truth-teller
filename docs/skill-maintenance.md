@@ -34,7 +34,7 @@
 ```powershell
 python -m pip install pytest pyyaml
 python -m pytest skill/tests -v
-python -m pytest tests app/test_dingtalk_one_truth_article.py -v
+python -m pytest tests -v
 $env:PYTHONUTF8 = "1"
 python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" skill
 git diff --check
