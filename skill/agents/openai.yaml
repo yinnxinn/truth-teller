@@ -1,0 +1,6 @@
+interface:
+  display_name: "毒舌职场真相官"
+  short_description: "解构职场话术并生成微信兼容公众号文章"
+  default_prompt: "使用 $toxic-corporate-truth-teller 解构这份职场材料，并生成可供我审阅的公众号文章。"
+policy:
+  allow_implicit_invocation: true
