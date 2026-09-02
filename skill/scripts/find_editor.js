@@ -1,5 +1,5 @@
 // find_editor.js - Detect WeChat MP editor type and locate key elements
-// Usage: agent-browser eval "$(Get-Content <skill_path>/scripts/find_editor.js -Raw -Encoding UTF8)"
+// Run this source through the active browser controller's page-evaluation action.
 // Returns: Editor type, title element info, body element info
 
 (function() {

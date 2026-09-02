@@ -1,0 +1,20 @@
+{
+  "title": "自愿加班，强制背锅",
+  "date": "2026-09-02",
+  "author": "毒舌职场真相官",
+  "lead": "一份把考核包装成自愿的内部通知。",
+  "verdict": "所谓自主奋斗，就是把公司的排班责任外包给员工的恐惧。",
+  "sections": [
+    {
+      "heading": "自愿为什么写进人才盘点",
+      "quote": "员工可自愿参加，参与情况会作为季度人才盘点的参考。",
+      "comment": "当拒绝会留下考核痕迹，自愿只是强制穿上的礼貌外套。"
+    }
+  ],
+  "judge_title": "最后的判词",
+  "judge_body": "制度不敢写强制，就让考核替它开口。",
+  "source_url": "https://example.com/original-notice",
+  "source_label": "原创测试材料",
+  "footer": "本示例为虚构材料，仅用于测试。",
+  "template": "classic"
+}

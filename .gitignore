@@ -6,6 +6,18 @@
 /logs/
 *.log
 
+# ---- 账号、会话与环境配置：绝不上库 ----
+*.env
+.env*
+account_session.json
+browser-cookies.txt
+cookie.json
+cookies.json
+session.json
+sessions.json
+auth-state.json
+auth_state.json
+
 # ---- Python 缓存 ----
 __pycache__/
 *.py[cod]

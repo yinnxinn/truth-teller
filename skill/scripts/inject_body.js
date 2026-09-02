@@ -1,5 +1,5 @@
 // inject_body.js - Inject article HTML content into WeChat MP ProseMirror editor
-// Usage: agent-browser eval "$(Get-Content <skill_path>/scripts/inject_body.js -Raw -Encoding UTF8)"
+// Run this source through the active browser controller's page-evaluation action.
 //
 // IMPORTANT: The HTML_CONTENT variable below must be replaced with the actual article HTML
 // before execution. This script serves as a template — the agent should replace the 
@@ -51,7 +51,7 @@
         return JSON.stringify({
             success: false,
             message: 'Editor element not found. Run find_editor.js first to detect editor type.',
-            hint: 'Try: agent-browser eval "$(Get-Content scripts/find_editor.js -Raw -Encoding UTF8)"'
+            hint: 'Run scripts/find_editor.js through the active browser controller before retrying.'
         });
     }
 })();
